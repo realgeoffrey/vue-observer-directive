@@ -36,7 +36,7 @@ function DisplayDom ({ target, show = () => {}, hide = () => {}, threshold = 0.0
   }
 }
 
-const plugin = {
+const vueObserverDirective = {
   install (Vue) {
     Vue.directive('observer', {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
       inserted (el, { value, arg, modifiers }) {
@@ -58,4 +58,4 @@ const plugin = {
   }
 }
 
-export default plugin
+export default vueObserverDirective

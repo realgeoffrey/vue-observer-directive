@@ -1,9 +1,9 @@
 {
-  "name": "vue-observer-plugin",
+  "name": "vue-observer-directive",
   "description": "使用 IntersectionObserver 进行是否展示 DOM 判断",
   "repository": {
     "type": "git",
-    "url": "git@github.com:realgeoffrey/vue-observer-plugin.git"
+    "url": "git@github.com:realgeoffrey/vue-observer-directive.git"
   },
   "keywords": [
     "vue",
@@ -11,42 +11,25 @@
   ],
   "author": "realgeoffrey",
   "license": "MIT",
-  "homepage": "https://github.com/realgeoffrey/vue-observer-plugin#readme",
+  "homepage": "https://github.com/realgeoffrey/vue-observer-directive#readme",
   "bugs": {
-    "url": "https://github.com/realgeoffrey/vue-observer-plugin/issues"
+    "url": "https://github.com/realgeoffrey/vue-observer-directive/issues"
   },
-
-  "main": "src/plugins/observer-plugin.js",
-  "module": "src/plugins/observer-plugin.js",
-  "unpkg": "dist/xxx",
-  "jsdelivr": "dist/xxx",
-
-  "files": [
-    "src/plugins/observer-plugin.js"
-  ],
+  "main": "dist/vue-observer-directive.cjs.js",
+  "module": "dist/vue-observer-directive.esm.js",
+  "unpkg": "dist/vue-observer-directive.iife.js",
+  "jsdelivr": "dist/vue-observer-directive.iife.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "build": "rollup --config ./build/rollup.config.js ./src/vue-observer-directive.js"
   },
-  "dependencies": {
-    "vue": "^2.6.6"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.4.0",
-    "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-plugin-unit-mocha": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "^1.0.0-beta.29",
-    "babel-eslint": "^10.0.1",
-    "chai": "^4.2.0",
-    "eslint": "^5.13.0",
-    "eslint-plugin-vue": "^5.1.0",
-    "lint-staged": "^8.1.3",
-    "vue-template-compiler": "^2.6.6"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "babelrc-rollup": "^3.0.0"
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

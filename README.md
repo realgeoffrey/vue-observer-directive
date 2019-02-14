@@ -1,4 +1,4 @@
-# vue-observer-plugin
+# vue-observer-directive
 
 ## 在线Demo
 
