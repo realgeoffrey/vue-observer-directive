@@ -1,0 +1,101 @@
+<template>
+  <div>
+    <div style="position: fixed; right: 0; top: 0;">
+      <a @click="toggleImg1">toggleImg1</a>
+      <a @click="toggleImg2">toggleImg2</a>
+      <a @click="toggleImg3">toggleImg3</a>
+      <a @click="toggleImg4">toggleImg4</a>
+    </div>
+    <div style="height: 200px;">
+      one
+    </div>
+    1-1
+    <img alt="first" src="//via.placeholder.com/150?text=first" v-if="showImg1" v-observer:10="{ show: handleShow1, hide: handleHide1 }">
+    1-2
+    <img alt="first" src="//via.placeholder.com/150?text=first">
+    <div style="height: 200px;">
+      two
+    </div>
+    2-1
+    <img alt="second" src="//via.placeholder.com/150?text=second" v-if="showImg2" v-observer.once="{ show: handleShow2, hide: handleHide2 }">
+    2-2
+    <img alt="second" src="//via.placeholder.com/150?text=second">
+    <div style="height: 200px;">
+      three
+    </div>
+    3-1
+    <img alt="third" src="//via.placeholder.com/150?text=third" v-if="showImg3" v-observer:80.once="{ show: handleShow3, hide: handleHide3 }">
+    3-2
+    <img alt="third" src="//via.placeholder.com/150?text=third">
+    <div style="height: 200px;">
+      four
+    </div>
+    4-1
+    <img alt="four" src="//via.placeholder.com/150?text=four" v-if="showImg4" v-observer="{ show: handleShow4, hide: handleHide4 }">
+    4-2
+    <img alt="four" src="//via.placeholder.com/150?text=four">
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'DirectiveObserver',
+  data () {
+    return {
+      showImg1: true,
+      showImg2: true,
+      showImg3: true,
+      showImg4: true
+    }
+  },
+  methods: {
+    handleShow1 () {
+      console.log('show1')
+    },
+    handleHide1 () {
+      console.log('hide1')
+    },
+    handleShow2 () {
+      console.log('show2')
+    },
+    handleHide2 () {
+      console.log('hide2')
+    },
+    handleShow3 () {
+      console.log('show3')
+    },
+    handleHide3 () {
+      console.log('hide3')
+    },
+    handleShow4 () {
+      console.log('show4')
+    },
+    handleHide4 () {
+      console.log('hide4')
+    },
+    toggleImg1 () {
+      this.showImg1 = !this.showImg1
+    },
+    toggleImg2 () {
+      this.showImg2 = !this.showImg2
+    },
+    toggleImg3 () {
+      this.showImg3 = !this.showImg3
+    },
+    toggleImg4 () {
+      this.showImg4 = !this.showImg4
+    }
+  }
+}
+</script>
+
+<style scoped>
+  img {
+    height: 200px;
+    width: 200px;
+  }
+  a {
+    display: block;
+    cursor: pointer;
+  }
+</style>
