@@ -36,26 +36,32 @@ function DisplayDom ({ target, show = () => {}, hide = () => {}, threshold = 0.0
   }
 }
 
-const vueObserverDirective = {
-  install (Vue) {
-    Vue.directive('observer', {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
-      inserted (el, { value, arg, modifiers }) {
-        el.observer = new DisplayDom({
-          target: el,
-          show: typeof value === 'function' ? value : value.show,
-          hide: value.hide,
-          threshold: (arg / 100) || undefined,
-          once: modifiers.once,
-          root: value.dom
-        })
-      },
-      unbind (el) {
-        if (el.observer && typeof el.observer.stop === 'function') {
-          el.observer.stop()
-        }
-      }
+const observer = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
+  inserted (el, { value, arg, modifiers }) {
+    el.observer = new DisplayDom({
+      target: el,
+      show: typeof value === 'function' ? value : value.show,
+      hide: value.hide,
+      threshold: (arg / 100) || undefined,
+      once: modifiers.once,
+      root: value.dom
     })
+  },
+  unbind (el) {
+    if (el.observer && typeof el.observer.stop === 'function') {
+      el.observer.stop()
+    }
   }
+}
+
+const vueObserverDirective = {
+  // 全局注册
+  install (Vue) {
+    Vue.directive('observer', observer)
+  },
+
+  // 局部注册
+  observer
 }
 
 export default vueObserverDirective

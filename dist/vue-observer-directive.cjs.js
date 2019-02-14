@@ -55,30 +55,34 @@ function DisplayDom() {
   }
 }
 
-var vueObserverDirective = {
-  install: function install(Vue) {
-    Vue.directive('observer', {
-      // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
-      inserted: function inserted(el, _ref2) {
-        var value = _ref2.value,
-            arg = _ref2.arg,
-            modifiers = _ref2.modifiers;
-        el.observer = new DisplayDom({
-          target: el,
-          show: typeof value === 'function' ? value : value.show,
-          hide: value.hide,
-          threshold: arg / 100 || undefined,
-          once: modifiers.once,
-          root: value.dom
-        });
-      },
-      unbind: function unbind(el) {
-        if (el.observer && typeof el.observer.stop === 'function') {
-          el.observer.stop();
-        }
-      }
+var observer = {
+  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
+  inserted: function inserted(el, _ref2) {
+    var value = _ref2.value,
+        arg = _ref2.arg,
+        modifiers = _ref2.modifiers;
+    el.observer = new DisplayDom({
+      target: el,
+      show: typeof value === 'function' ? value : value.show,
+      hide: value.hide,
+      threshold: arg / 100 || undefined,
+      once: modifiers.once,
+      root: value.dom
     });
+  },
+  unbind: function unbind(el) {
+    if (el.observer && typeof el.observer.stop === 'function') {
+      el.observer.stop();
+    }
   }
+};
+var vueObserverDirective = {
+  // 全局注册
+  install: function install(Vue) {
+    Vue.directive('observer', observer);
+  },
+  // 局部注册
+  observer: observer
 };
 
 module.exports = vueObserverDirective;

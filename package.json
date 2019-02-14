@@ -20,16 +20,16 @@
   "unpkg": "dist/vue-observer-directive.iife.js",
   "jsdelivr": "dist/vue-observer-directive.iife.js",
   "scripts": {
-    "build": "rollup --config ./build/rollup.config.js ./src/vue-observer-directive.js"
+    "build": "rollup --config ./build/rollup.config.js "
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "babelrc-rollup": "^3.0.0"
   },
-  "version": "0.2.0"
+  "version": "1.0.0"
 }

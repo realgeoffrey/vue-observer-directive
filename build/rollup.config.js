@@ -7,7 +7,6 @@ const config = {
   plugins: [
     babel({
       ...babelrc({
-        addModuleOptions: false,
         addExternalHelpersPlugin: false
       }),
       exclude: 'node_modules/**'
@@ -18,23 +17,27 @@ const config = {
   ]
 }
 
-export default [{
-  ...config,
-  output: {
-    format: 'iife', // <script>引用
-    file: 'dist/vue-observer-directive.iife.js',
-    name: 'vueObserverDirective'
+export default [
+  {
+    ...config,
+    output: {
+      format: 'cjs',  // CommonJS
+      file: 'dist/vue-observer-directive.cjs.js'
+    }
+  },
+  {
+    ...config,
+    output: {
+      format: 'esm',  // ES6 module
+      file: 'dist/vue-observer-directive.esm.js'
+    }
+  },
+  {
+    ...config,
+    output: {
+      format: 'iife', // <script>引用
+      file: 'dist/vue-observer-directive.iife.js',
+      name: 'vueObserverDirective'
+    }
   }
-}, {
-  ...config,
-  output: {
-    format: 'esm',  // ES6 module
-    file: 'dist/vue-observer-directive.esm.js'
-  }
-}, {
-  ...config,
-  output: {
-    format: 'cjs',  // CommonJS
-    file: 'dist/vue-observer-directive.cjs.js'
-  }
-}]
+]

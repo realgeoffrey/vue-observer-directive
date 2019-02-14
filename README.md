@@ -1,114 +1,65 @@
 # vue-observer-directive
 
-## 在线Demo
+通过[`window.IntersectionObserver`](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver)判断DOM是否在视口展示，在Vue自定义指令中进行方法执行。
 
-[https://xunleif2e.github.io/vue-clickout/demo/dist/index.html](https://xunleif2e.github.io/vue-clickout/demo/dist/index.html)
+1. npm：<https://www.npmjs.com/package/vue-observer-directive>
+2. demo：<https://realgeoffrey.github.io/vue-observer-directive/index.html>
 
-## Installation
+### 安装
+1. node安装
 
-```
-npm i @xunlei/vue-clickout -S
-```
+    ```bash
+    npm install vue-observer-directive
+    ```
+2. 浏览器引用
 
-## 注册指令
+    ```html
+    <script src="//unpkg.com/vue-observer-directive"></script>
+    ```
 
-`clickout`事件是通过指令的方式实现的，因此使用前需注册指令，可以全局注册也可以局部注册。
+### 注册指令
+1. 全局注册
 
-### 全局注册
-```javascript
-import Vue from 'vue'
-import VueClickout from '@xunlei/vue-clickout'
+    ```javascript
+    import Vue from 'vue'
+    import vueObserverDirective from 'vue-observer-directive'
 
-Vue.use(VueClickout)
-```
-### 局部注册
-```html
-<template>
-  <div class="face" v-clickout @clickout="open=false">
-    <a href="javascript:;" @click="open=!open">表情</a>
-    <div class="emoji">
-       <li title="开心"><span class="ico-emoji emoji-kaixin"></span></li>
-       <li title="可爱"><span class="ico-emoji emoji-keai"></span></li>
-    </div>
-  </div>
-</template>
-<script>
-import { clickout } from '@xunlei/vue-clickout'
+    // 全局注册
+    Vue.use(vueObserverDirective)
+    ```
+2. 局部注册
 
-export default {
-  data () {
-    return {
-       open: false
+    ```javascript
+    import vueObserverDirective from 'vue-observer-directive'
+
+    export default {
+      directives: {
+        // 局部注册
+        observer: vueObserverDirective.observer
+      }
     }
-  },
-  // 注册指令
-  directives: {
-    clickout
-  }
-}
-</script>
-```
+    ```
+
 ### 用法
+1. 指令名称：`v-observer`
+2. 指令参数：
 
-```html
-<template>
-  <div class="item-comment">
-    <div class="comment-user">
-      <span class="user-name">疯狂的迷弟: </span>
-      <p class="text-comment">王祖贤越看越美</p>
-      <a href="javascript:;" class="reply-btn" @click="showReply=!showReply" ref="replyBtnRef">回复</a>
-    </div>
-    <div class="reply"  v-clickout="['replyBtnRef']" @clickout="showReply=false">
-      <div class="reply-area" v-show="showReply">
-        <input type="text" class="ipt-reply">
-        <div class="reply-option">
-          <button>发送</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
+    1. 传给指令的参数：`:数字`（数字：1~100）
+    2. 修饰符：`.once`
+    3. 绑定值：`{ show: 可见时方法, hide: 非可见时方法 }`
 
-<script>
-export default {
-  data () {
-    return {
-      showReply: false
-    }
-  }
-}
-</script>
-```
-### 参数
+- e.g.
 
-参数 | 说明 | 类型 | 
-| :-- | :-- | :-- |
-| exceptRefs | 要排除的Ref,默认为指令所在的DOM | Array
+    ```vue
+    <!-- DOM展示≥10%执行：方法1-1；否则执行：方法2-1 -->
+    <img v-observer:10="{ show: 方法1-1, hide: 方法2-1 }" alt="first" src="//via.placeholder.com/150?text=first">
 
-## 开发命令
+    <!-- DOM展示100%执行：方法1-2；否则执行：方法2-2；若展示过一次，则不再触发2个方法 -->
+    <img v-observer.once="{ show: 方法1-2, hide: 方法2-2 }" alt="second" src="//via.placeholder.com/150?text=second">
 
-``` bash
-# install deps
-npm install
+    <!-- DOM展示≥80%执行：方法1-3；否则执行：方法2-3；若展示过一次，则不再触发2个方法 -->
+    <img v-observer:80.once="{ show: 方法1-3, hide: 方法2-3 }" alt="third" src="//via.placeholder.com/150?text=third">
 
-# serve demo at localhost:8080
-npm run dev
-
-# build library and demo
-npm run build
-
-# build library
-npm run build:library
-
-# build demo
-npm run build:demo
-
-# pre publish
-npm run prepublish
-```
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2018 [greenfavo](https://github.com/greenfavo)
+    <!-- DOM展示100%执行：方法1-4；否则执行：方法2-4 -->
+    <img v-observer="{ show: 方法1-4, hide: 方法2-4 }" alt="four" src="//via.placeholder.com/150?text=four">
+    ```
