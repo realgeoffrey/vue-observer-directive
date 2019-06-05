@@ -56,8 +56,8 @@ const observer = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
 
 const vueObserverDirective = {
   // 全局注册
-  install (Vue) {
-    Vue.directive('observer', observer)
+  install (Vue, options = {}) {
+    Vue.directive(options.directive || 'observer', observer)
   },
 
   // 局部注册

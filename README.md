@@ -14,6 +14,7 @@
 2. 浏览器引用
 
     ```html
+    <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
     <script src="//unpkg.com/vue-observer-directive"></script>
     ```
 
@@ -25,7 +26,7 @@
     import vueObserverDirective from 'vue-observer-directive'
 
     // 全局注册
-    Vue.use(vueObserverDirective)
+    Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
     ```
 2. 局部注册
 
@@ -63,3 +64,5 @@
     <!-- DOM展示100%执行：方法1-4；否则执行：方法2-4 -->
     <img v-observer="{ show: 方法1-4, hide: 方法2-4 }" alt="four" src="//via.placeholder.com/150?text=four">
     ```
+### 注意
+若用来处理无限加载的问题，则要考虑`show`方法仅在从消失变为展示时才会触发（`window.IntersectionObserver`作用原理），`hide`方法同理。

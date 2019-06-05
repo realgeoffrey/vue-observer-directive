@@ -80,7 +80,8 @@ var vueObserverDirective = (function () {
   var vueObserverDirective = {
     // 全局注册
     install: function install(Vue) {
-      Vue.directive('observer', observer);
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      Vue.directive(options.directive || 'observer', observer);
     },
     // 局部注册
     observer: observer
