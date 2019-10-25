@@ -1,6 +1,6 @@
 {
   "name": "vue-observer-directive",
-  "description": "使用 IntersectionObserver 进行是否展示 DOM 判断",
+  "description": "使用 IntersectionObserver 进行是否展示 DOM 判断（Vue自定义指令）",
   "repository": {
     "type": "git",
     "url": "git@github.com:realgeoffrey/vue-observer-directive.git"
@@ -24,12 +24,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "rollup": "^1.14.0",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^10.0.0",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "rollup": "^1.25.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "babelrc-rollup": "^3.0.0"
   },
-  "version": "1.1.2"
+  "version": "1.1.3"
 }
