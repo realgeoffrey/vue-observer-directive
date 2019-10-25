@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel'
+import { terser } from "rollup-plugin-terser"
 import babelrc from 'babelrc-rollup'
 import commonjs from 'rollup-plugin-commonjs'
 
@@ -13,7 +14,8 @@ const config = {
     }),
     commonjs({
       include: 'node_modules/**'
-    })
+    }),
+    terser()
   ]
 }
 
