@@ -30,6 +30,14 @@
         // 全局注册
         Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
         ```
+        或
+        ```javascript
+        import Vue from 'vue'
+        import { vueObserverDirective } from 'vue-observer-directive'
+
+        // 全局注册
+        Vue.directive('observer', vueObserverDirective)
+        ```
     2. 浏览器
 
         ```html
@@ -39,6 +47,7 @@
         <script>
         // 全局注册
         Vue.use(vueObserverDirective.default, { directive: 'observer' }) // 自定义指令名默认是：observer
+        // 或：Vue.directive('observer', vueObserverDirective.vueObserverDirective)
         </script>
         ```
 2. 局部注册
