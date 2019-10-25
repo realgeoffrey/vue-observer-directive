@@ -22,34 +22,34 @@
       <a @click="toggleImg3">toggleImg3</a>
       <a @click="toggleImg4">toggleImg4</a>
     </div>
-    <div style="height: 200px;">
-      one
-    </div>
-    1-1
-    <img alt="first" src="//via.placeholder.com/150?text=first" v-if="showImg1" v-observer2:10="{ show: handleShow1, hide: handleHide1 }">
-    1-2
-    <img alt="first" src="//via.placeholder.com/150?text=first">
-    <div style="height: 200px;">
-      two
-    </div>
-    2-1
-    <img alt="second" src="//via.placeholder.com/150?text=second" v-if="showImg2" v-observer2.once="{ show: handleShow2, hide: handleHide2 }">
-    2-2
-    <img alt="second" src="//via.placeholder.com/150?text=second">
-    <div style="height: 200px;">
-      three
-    </div>
-    3-1
-    <img alt="third" src="//via.placeholder.com/150?text=third" v-if="showImg3" v-observer2:80.once="{ show: handleShow3, hide: handleHide3 }">
-    3-2
-    <img alt="third" src="//via.placeholder.com/150?text=third">
-    <div style="height: 200px;">
-      four
-    </div>
-    4-1
-    <img alt="four" src="//via.placeholder.com/150?text=four" v-if="showImg4" v-observer2="{ show: handleShow4, hide: handleHide4 }">
-    4-2
-    <img alt="four" src="//via.placeholder.com/150?text=four">
+
+    <p>
+      1-1
+      <img alt="first" src="//via.placeholder.com/150?text=first" v-if="showImg1" v-observer2:10="{ show: handleShow1, hide: handleHide1 }">
+      <br>
+      v-observer2:10 {{ text1 }}
+    </p>
+
+    <p>
+      2-1
+      <img alt="second" src="//via.placeholder.com/150?text=second" v-if="showImg2" v-observer2.once="{ show: handleShow2, hide: handleHide2 }">
+      <br>
+      v-observer2.once {{ text2 }}
+    </p>
+
+    <p>
+      3-1
+      <img alt="third" src="//via.placeholder.com/150?text=third" v-if="showImg3" v-observer2:80.once="{ show: handleShow3, hide: handleHide3 }">
+      <br>
+      v-observer2:80.once {{ text3 }}
+    </p>
+
+    <p>
+      4-1
+      <img alt="four" src="//via.placeholder.com/150?text=four" v-if="showImg4" v-observer2="{ show: handleShow4, hide: handleHide4 }">
+      <br>
+      v-observer2 {{ text4 }}
+    </p>
   </div>
 
   <script src="//unpkg.com/vue"></script>
@@ -70,33 +70,46 @@
         showImg1: true,
         showImg2: true,
         showImg3: true,
-        showImg4: true
+        showImg4: true,
+
+        'text1': '',
+        'text2': '',
+        'text3': '',
+        'text4': ''
       }
     },
     methods: {
       handleShow1 () {
         console.log('show1')
+        this.text1 = this.text1 + '展示;'
       },
       handleHide1 () {
         console.log('hide1')
+        this.text1 = this.text1 + '隐藏;'
       },
       handleShow2 () {
         console.log('show2')
+        this.text2 = this.text2 + '展示;'
       },
       handleHide2 () {
         console.log('hide2')
+        this.text2 = this.text2 + '隐藏;'
       },
       handleShow3 () {
         console.log('show3')
+        this.text3 = this.text3 + '展示;'
       },
       handleHide3 () {
         console.log('hide3')
+        this.text3 = this.text3 + '隐藏;'
       },
       handleShow4 () {
         console.log('show4')
+        this.text4 = this.text4 + '展示;'
       },
       handleHide4 () {
         console.log('hide4')
+        this.text4 = this.text4 + '隐藏;'
       },
       toggleImg1 () {
         this.showImg1 = !this.showImg1
