@@ -61,7 +61,7 @@ const vueObserverDirective = {
   },
 
   // 局部注册
-  observer
+  vueObserverDirective: observer
 }
 
 export default vueObserverDirective

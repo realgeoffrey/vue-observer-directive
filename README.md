@@ -46,12 +46,12 @@
     1. node
 
         ```javascript
-        import vueObserverDirective from 'vue-observer-directive'
+        import { vueObserverDirective } from 'vue-observer-directive'
 
         export default {
           directives: {
             // 局部注册
-            observer: vueObserverDirective.observer
+            observer: vueObserverDirective
           }
         }
         ```
@@ -65,7 +65,7 @@
         new Vue({
           directives: {
             // 局部注册
-            observer: vueObserverDirective.observer
+            observer: vueObserverDirective.vueObserverDirective
           }
         })
         </script>
