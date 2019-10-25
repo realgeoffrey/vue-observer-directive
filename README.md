@@ -38,7 +38,7 @@
 
         <script>
         // 全局注册
-        Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
+        Vue.use(vueObserverDirective.default, { directive: 'observer' }) // 自定义指令名默认是：observer
         </script>
         ```
 2. 局部注册

@@ -54,14 +54,16 @@ const observer = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
   }
 }
 
-const vueObserverDirective = {
-  // 全局注册
+const plugin = {
   install (Vue, options = {}) {
     Vue.directive(options.directive || 'observer', observer)
-  },
-
-  // 局部注册
-  vueObserverDirective: observer
+  }
 }
 
-export default vueObserverDirective
+export {
+  // 全局注册
+  plugin as default,
+
+  // 局部注册
+  observer as vueObserverDirective
+}
