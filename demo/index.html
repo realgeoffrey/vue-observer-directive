@@ -56,9 +56,14 @@
   <script src="//unpkg.com/vue-observer-directive"></script>
 
   <script>
-  Vue.use(vueObserverDirective, { directive: 'observer2' })
+  // 全局注册
+  // Vue.use(vueObserverDirective, { directive: 'observer2' })
 
   new Vue({
+    directives: {
+      // 局部注册
+      observer2: vueObserverDirective.observer
+    },
     el: '#app',
     data () {
       return {

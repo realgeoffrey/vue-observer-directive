@@ -9,7 +9,7 @@
 1. node安装
 
     ```bash
-    npm install vue-observer-directive
+    npm install vue-observer-directive --save
     ```
 2. 浏览器引用
 
@@ -21,25 +21,55 @@
 ### 注册指令
 1. 全局注册
 
-    ```javascript
-    import Vue from 'vue'
-    import vueObserverDirective from 'vue-observer-directive'
+    1. node
 
-    // 全局注册
-    Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
-    ```
+        ```javascript
+        import Vue from 'vue'
+        import vueObserverDirective from 'vue-observer-directive'
+
+        // 全局注册
+        Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
+        ```
+    2. 浏览器
+
+        ```html
+        <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
+        <!-- 需要先引入vue-observer-directive：<script src="//unpkg.com/vue-observer-directive"></script> -->
+
+        <script>
+        // 全局注册
+        Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
+        </script>
+        ```
 2. 局部注册
 
-    ```javascript
-    import vueObserverDirective from 'vue-observer-directive'
+    1. node
 
-    export default {
-      directives: {
-        // 局部注册
-        observer: vueObserverDirective.observer
-      }
-    }
-    ```
+        ```javascript
+        import vueObserverDirective from 'vue-observer-directive'
+
+        export default {
+          directives: {
+            // 局部注册
+            observer: vueObserverDirective.observer
+          }
+        }
+        ```
+    2. 浏览器
+
+        ```html
+        <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
+        <!-- 需要先引入vue-observer-directive：<script src="//unpkg.com/vue-observer-directive"></script> -->
+
+        <script>
+        new Vue({
+          directives: {
+            // 局部注册
+            observer: vueObserverDirective.observer
+          }
+        })
+        </script>
+        ```
 
 ### 用法
 1. 指令名称：`v-observer`
