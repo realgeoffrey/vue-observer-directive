@@ -33,5 +33,5 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^5.1.2"
   },
-  "version": "1.2.2"
+  "version": "1.2.3"
 }
