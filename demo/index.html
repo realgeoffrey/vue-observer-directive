@@ -57,13 +57,13 @@
 
   <script>
   // 全局注册
-  // Vue.use(vueObserverDirective.default, { directive: 'observer2' })
-  // 或：Vue.directive('observer2', vueObserverDirective.vueObserverDirective)
+  // Vue.use(vueObserverDirective, { directive: 'observer2' })
+  // 或：Vue.directive('observer2', vueObserverDirective)
 
   new Vue({
     directives: {
       // 局部注册
-      observer2: vueObserverDirective.vueObserverDirective
+      observer2: vueObserverDirective
     },
     el: '#app',
     data () {

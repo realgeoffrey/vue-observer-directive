@@ -36,7 +36,7 @@ function DisplayDom ({ target, show = () => {}, hide = () => {}, threshold = 0.0
   }
 }
 
-const observer = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
+const vueObserverDirective = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
   inserted (el, { value, arg, modifiers }) {
     el.observer = new DisplayDom({
       target: el,
@@ -54,16 +54,8 @@ const observer = {  // v-observer:数字.once="{ show: ()=>{}, hide: ()=>{} }"
   }
 }
 
-const plugin = {
-  install (Vue, options = {}) {
-    Vue.directive(options.directive || 'observer', observer)
-  }
+vueObserverDirective.install = (Vue, options = {}) => {
+  Vue.directive(options.directive || 'observer', vueObserverDirective)
 }
 
-export {
-  // 全局注册
-  plugin as default,
-
-  // 局部注册
-  observer as vueObserverDirective
-}
+export default vueObserverDirective

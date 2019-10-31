@@ -27,23 +27,14 @@
         import Vue from 'vue'
         import vueObserverDirective from 'vue-observer-directive'
 
-        // 全局注册（自定义指令名默认是：observer）
-        Vue.use(vueObserverDirective, { directive: 'observer' })
-        ```
-
-        或
-
-        ```javascript
-        import Vue from 'vue'
-        import { vueObserverDirective } from 'vue-observer-directive'
-
         // 全局注册
-        Vue.directive('observer', vueObserverDirective)
+        Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
+        // 或：Vue.directive('observer', vueObserverDirective)
         ```
     2. 局部注册
 
         ```javascript
-        import { vueObserverDirective } from 'vue-observer-directive'
+        import vueObserverDirective from 'vue-observer-directive'
 
         export default {
           directives: {
@@ -61,9 +52,9 @@
         <!-- 需要先引入vue-observer-directive：<script src="//unpkg.com/vue-observer-directive"></script> -->
 
         <script>
-        // 全局注册（自定义指令名默认是：observer）
-        Vue.use(vueObserverDirective.default, { directive: 'observer' })
-        // 或：Vue.directive('observer', vueObserverDirective.vueObserverDirective)
+        // 全局注册
+        Vue.use(vueObserverDirective, { directive: 'observer' }) // 自定义指令名默认是：observer
+        // 或：Vue.directive('observer', vueObserverDirective)
         </script>
         ```
     2. 局部注册
@@ -76,7 +67,7 @@
         new Vue({
           directives: {
             // 局部注册
-            observer: vueObserverDirective.vueObserverDirective
+            observer: vueObserverDirective
           }
         })
         </script>
