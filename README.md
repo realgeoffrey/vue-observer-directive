@@ -99,3 +99,7 @@
 
 ### 注意
 若用来处理无限加载的问题，则要考虑`show`方法仅在从消失变为展示时才会触发（`window.IntersectionObserver`作用原理），`hide`方法同理。
+
+- 可以在触发节点上增加`v-if/v-show`来处理无限加载
+
+    >e.g.`<div v-if="showLoadMore" v-observer="{ show: () => { 加载数据；在加载数据前把showLoadMore设置为false、加载完毕后设置为true } }">`
