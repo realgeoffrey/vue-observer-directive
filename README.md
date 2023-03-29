@@ -1,6 +1,6 @@
 # vue-observer-directive
 
-通过[`window.IntersectionObserver`](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver)判断DOM是否在视口展示，在Vue自定义指令中进行方法执行。
+通过[`window.IntersectionObserver`](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver)判断DOM是否在视口展示，在Vue@2自定义指令中进行方法执行。
 
 1. npm：<https://www.npmjs.com/package/vue-observer-directive>
 2. demo：<https://realgeoffrey.github.io/vue-observer-directive/demo/index.html>
@@ -14,7 +14,7 @@
 2. 浏览器引用
 
     ```html
-    <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
+    <!-- 需要先引入vue：<script src="//unpkg.com/vue@2"></script> -->
     <script src="//unpkg.com/vue-observer-directive"></script>
     ```
 
@@ -48,7 +48,7 @@
     1. 全局注册
 
         ```html
-        <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
+        <!-- 需要先引入vue：<script src="//unpkg.com/vue@2"></script> -->
         <!-- 需要先引入vue-observer-directive：<script src="//unpkg.com/vue-observer-directive"></script> -->
 
         <script>
@@ -60,7 +60,7 @@
     2. 局部注册
 
         ```html
-        <!-- 需要先引入vue：<script src="//unpkg.com/vue"></script> -->
+        <!-- 需要先引入vue：<script src="//unpkg.com/vue@2"></script> -->
         <!-- 需要先引入vue-observer-directive：<script src="//unpkg.com/vue-observer-directive"></script> -->
 
         <script>
