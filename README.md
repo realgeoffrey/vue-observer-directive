@@ -1,9 +1,11 @@
 # vue-observer-directive
 
+[![NPM Version](https://img.shields.io/npm/v/vue-observer-directive)](https://www.npmjs.com/package/vue-observer-directive)
+![Vue 2](https://img.shields.io/badge/Vue_2-42b883)
+
 通过[`window.IntersectionObserver`](https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver)判断DOM是否在视口展示，在Vue@2自定义指令中进行方法执行。
 
-1. npm：<https://www.npmjs.com/package/vue-observer-directive>
-2. demo：<https://realgeoffrey.github.io/vue-observer-directive/demo/index.html>
+demo：<https://realgeoffrey.github.io/vue-observer-directive/demo/index.html>
 
 ### 安装
 1. Node.js安装
